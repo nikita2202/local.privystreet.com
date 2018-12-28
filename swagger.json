@@ -1,0 +1,5136 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Budfie",
+        "description": "Budfie",
+        "version": "1"
+    },
+    "host": "budfie.com",
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/birthday_event": {
+            "post": {
+                "tags": [
+                    "Create Event"
+                ],
+                "summary": "Create Events",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "birthday_event",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_data",
+                        "in": "formData",
+                        "description": "data of events in json format",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/block": {
+            "get": {
+                "tags": [
+                    "Block list"
+                ],
+                "summary": "Get block list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "block_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Block User"
+                ],
+                "summary": "Block User",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "block_unblock",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friend_id",
+                        "in": "formData",
+                        "description": "Friend Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "1=Block,2=Unblock",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/change_number": {
+            "get": {
+                "tags": [
+                    "Verify OTP for edit number"
+                ],
+                "summary": "Check whether the entered OTP is correct or not",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "verify_otp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "otp",
+                        "in": "query",
+                        "description": "OTP",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "201": {
+                        "description": "Incorrect OTP"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Change user's phone number"
+                ],
+                "summary": "Change user's phone number",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "change_number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "formData",
+                        "description": "Country Code with +sign",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone_no",
+                        "in": "formData",
+                        "description": "Phone number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/chat_push": {
+            "post": {
+                "tags": [
+                    "Send Push Notification to user"
+                ],
+                "summary": "Send Push Notification to user",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "chat_notification",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Action (1 for single chat and 2 for group chat)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Title",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "Image",
+                        "type": "string"
+                    },
+                    {
+                        "name": "message",
+                        "in": "formData",
+                        "description": "Message",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "room_id",
+                        "in": "formData",
+                        "description": "Room id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friend_id",
+                        "in": "formData",
+                        "description": "Friend Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_ids",
+                        "in": "formData",
+                        "description": "Json Data(id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/clips": {
+            "get": {
+                "tags": [
+                    "Get Videos & Gifs"
+                ],
+                "summary": "Get Videos & Gifs",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "clips_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "Mood Type(1=Happy,2=Bored,3=Mad,4=Sad)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/complete_reminder": {
+            "get": {
+                "tags": [
+                    "Mark As Complete"
+                ],
+                "summary": "Mark As Complete",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "change_status",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_id",
+                        "in": "query",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_type",
+                        "in": "query",
+                        "description": "1=Owner, 2= Recipient",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/concerts": {
+            "get": {
+                "tags": [
+                    "Get Concerts"
+                ],
+                "summary": "Get Concerts",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_concerts",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "query",
+                        "description": "Event Date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "209": {
+                        "description": "User does not have interest in this "
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/contact": {
+            "get": {
+                "tags": [
+                    "Get New Friends List"
+                ],
+                "summary": "Get New Friends List",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_new_friends",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "last_sync_time",
+                        "in": "query",
+                        "description": "Last Contact Sync Time",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Contact Syncing"
+                ],
+                "summary": "Contact Syncing",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "contact_sync",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "contacts",
+                        "in": "formData",
+                        "description": "Json data(country_code,phone_no)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "deleted_contacts",
+                        "in": "formData",
+                        "description": "Json data(country_code,phone_no)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/create_reminder": {
+            "post": {
+                "tags": [
+                    "Custom Notification"
+                ],
+                "summary": "Custom Notification",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "custom",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Type(1=Health,2=Call,3=BillPay,4=Other)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "Name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "datetime",
+                        "in": "formData",
+                        "description": "Datetime(yyyy-mm-dd H:i:s)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat",
+                        "in": "formData",
+                        "description": "Repeat(1=Daily,2=Weekly,3=Monthly,4=Yearly)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/delete_event": {
+            "post": {
+                "tags": [
+                    "Delete event"
+                ],
+                "summary": "Delete event",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "delete_event",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Event Type (1 for event and 2 for Holiday)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_id",
+                        "in": "formData",
+                        "description": "Event_id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/delete_greeting": {
+            "get": {
+                "tags": [
+                    "Delete Greeting"
+                ],
+                "summary": "Delete Greeting",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "delete_greeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "greeting_id",
+                        "in": "query",
+                        "description": "Greeting Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "(1=Sent,2=Received,3=Drafts)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "share_id",
+                        "in": "query",
+                        "description": "Share id(IN Received Case)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/delete_reminder": {
+            "get": {
+                "tags": [
+                    "Delete Reminder"
+                ],
+                "summary": "Delete Reminder",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "delete_reminder",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_id",
+                        "in": "query",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/edit_event": {
+            "post": {
+                "tags": [
+                    "Edit Event"
+                ],
+                "summary": "Edit Event",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "edit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_id",
+                        "in": "formData",
+                        "description": "Event Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_name",
+                        "in": "formData",
+                        "description": "Event Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_type",
+                        "in": "formData",
+                        "description": "Event Type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "recurring_type",
+                        "in": "formData",
+                        "description": "Recurring Type(1=Daily,2=Weekly,3=Monthly,4=Yearly)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "formData",
+                        "description": "Event Date",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_time",
+                        "in": "formData",
+                        "description": "Event Time",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_image",
+                        "in": "formData",
+                        "description": "Event Image URL",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_location",
+                        "in": "formData",
+                        "description": "Event Location",
+                        "type": "string"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_me",
+                        "in": "formData",
+                        "description": "Remind me(DateTime format)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "greeting_id",
+                        "in": "formData",
+                        "description": "Greeting Id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "contacts",
+                        "in": "formData",
+                        "description": "Json data(country_code,phone_no)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/edit_holiday": {
+            "post": {
+                "tags": [
+                    "Edit Holiday"
+                ],
+                "summary": "Edit Holiday",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "edit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "formData",
+                        "description": "Holiday Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_date",
+                        "in": "formData",
+                        "description": "From",
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_date",
+                        "in": "formData",
+                        "description": "To",
+                        "type": "string"
+                    },
+                    {
+                        "name": "origin",
+                        "in": "formData",
+                        "description": "Origin",
+                        "type": "string"
+                    },
+                    {
+                        "name": "destination",
+                        "in": "formData",
+                        "description": "Destination",
+                        "type": "string"
+                    },
+                    {
+                        "name": "adults",
+                        "in": "formData",
+                        "description": "Number of Adults",
+                        "type": "string"
+                    },
+                    {
+                        "name": "kids",
+                        "in": "formData",
+                        "description": "Number of Kids",
+                        "type": "string"
+                    },
+                    {
+                        "name": "stay_type",
+                        "in": "formData",
+                        "description": "1=Hotel,2=Home",
+                        "type": "string"
+                    },
+                    {
+                        "name": "star_rate",
+                        "in": "formData",
+                        "description": "Star Rating",
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/edit_reminder": {
+            "post": {
+                "tags": [
+                    "Edit Reminder"
+                ],
+                "summary": "Edit Reminder",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "edit",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_id",
+                        "in": "formData",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Type(1=Health,2=Call,3=BillPay,4=Other)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "datetime",
+                        "in": "formData",
+                        "description": "Datetime(yyyy-mm-dd H:i:s)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "repeat",
+                        "in": "formData",
+                        "description": "Repeat(1=Daily,2=Weekly,3=Monthly,4=Yearly)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/event": {
+            "get": {
+                "tags": [
+                    "Event Types"
+                ],
+                "summary": "Get Event Types",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "event_type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Create Event"
+                ],
+                "summary": "Create Events",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "create_event",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_name",
+                        "in": "formData",
+                        "description": "Event Name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_type",
+                        "in": "formData",
+                        "description": "Event Type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "recurring_type",
+                        "in": "formData",
+                        "description": "Recurring Type(1=Daily,2=Weekly,3=Monthly,4=Yearly)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "formData",
+                        "description": "Event Date",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_time",
+                        "in": "formData",
+                        "description": "Event Time",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_image",
+                        "in": "formData",
+                        "description": "Event Image",
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_location",
+                        "in": "formData",
+                        "description": "Event Location",
+                        "type": "string"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "remind_me",
+                        "in": "formData",
+                        "description": "Remind me(DateTime format)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/event_dates": {
+            "get": {
+                "tags": [
+                    "Get Event Dates"
+                ],
+                "summary": "Get Event Dates",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_event_dates",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_month",
+                        "in": "query",
+                        "description": "Date Format",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/event_detail": {
+            "get": {
+                "tags": [
+                    "Get Event Details"
+                ],
+                "summary": "Get Event Details",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "event_details",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_category",
+                        "in": "query",
+                        "description": "Event Category(1=movie,2=concerts,3=sports,4=personal events,5=Cricket,6=Badminton,7=Tennis,8=Holiday Plan)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_id",
+                        "in": "query",
+                        "description": "Event Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "query",
+                        "description": "Event Date",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS Match Status(1=not-started,2=started,3=completed), type(1=t20,2=one-day,3=test)"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/event_invitation": {
+            "post": {
+                "tags": [
+                    "Accept or Reject Invitation of event"
+                ],
+                "summary": "Accept or Reject Invitation of event",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "accept_reject",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_id",
+                        "in": "formData",
+                        "description": "Event_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Event Type (1 for event and 2 for Holiday)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "formData",
+                        "description": "Action (1 for accept and 2 for reject)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/favourite": {
+            "post": {
+                "tags": [
+                    "Add Favourite"
+                ],
+                "summary": "Add Favourite",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "add_remove_favourite",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "formData",
+                        "description": "Action(1=Add Favourite and 2=Remove Favourite)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "1=Movies/TV,2=Concerts,3=Soccer,4=Cricket,5=Badminton,6=Tennis",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type_id",
+                        "in": "formData",
+                        "description": "Event ID",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/friend": {
+            "get": {
+                "tags": [
+                    "Friend List"
+                ],
+                "summary": "Get Friend List",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "friend_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search_key",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "type": "string"
+                    },
+                    {
+                        "name": "recipient_type",
+                        "in": "query",
+                        "description": "1=Yes and 2=No",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Invite Friends"
+                ],
+                "summary": "Invite Friends",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "invite_friends",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_id",
+                        "in": "formData",
+                        "description": "Event_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "contacts",
+                        "in": "formData",
+                        "description": "Json data(country_code,phone_no)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/get_reminders": {
+            "get": {
+                "tags": [
+                    "Get Reminders"
+                ],
+                "summary": "Get Reminders",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "fetch_reminders",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS(category=1 for Pending Invitation, category=2 for reminders)"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/gift": {
+            "get": {
+                "tags": [
+                    "Get List of gifts"
+                ],
+                "summary": "Get list of gifts",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "gift_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/greeting": {
+            "get": {
+                "tags": [
+                    "Get Greeting List"
+                ],
+                "summary": "Get Greeting list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "greeting_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "(1=Sent,2=Received,3=Draft)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Create Greeting"
+                ],
+                "summary": "Create Greeting",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "create_greeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "(1=Animated,2=Face in a hole,3=Popup or 3D,4=Classic & Funny)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "Greeting Title",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "music",
+                        "in": "formData",
+                        "description": "Greeting Music",
+                        "type": "string"
+                    },
+                    {
+                        "name": "url",
+                        "in": "formData",
+                        "description": "Greeting url",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/greeting_cards": {
+            "get": {
+                "tags": [
+                    "Get Cards to create greeting"
+                ],
+                "summary": "Get Cards list to create greeting",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "cards",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "(1=Animated,2=Popup,3=Funny,4=Face in a hole)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/greeting_count": {
+            "get": {
+                "tags": [
+                    "Get Greeting Count"
+                ],
+                "summary": "Get Greeting Count",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "count",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/greeting_details": {
+            "get": {
+                "tags": [
+                    "Get Greeting Details"
+                ],
+                "summary": "Get Greeting Details",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "greeting_details",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "greeting_id",
+                        "in": "query",
+                        "description": "Greeting Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "(1=Sent,2=Received)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/holiday": {
+            "get": {
+                "tags": [
+                    "Get Holiday dates list"
+                ],
+                "summary": "Get Holiday dates list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "holiday_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "description": "Year",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Create Holiday Plan"
+                ],
+                "summary": "Create Holiday Plan",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "create_holiday_plan",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "from_date",
+                        "in": "formData",
+                        "description": "From",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "to_date",
+                        "in": "formData",
+                        "description": "To",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "origin",
+                        "in": "formData",
+                        "description": "Origin",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "destination",
+                        "in": "formData",
+                        "description": "Destination",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "adults",
+                        "in": "formData",
+                        "description": "Number of Adults",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "kids",
+                        "in": "formData",
+                        "description": "Number of Kids",
+                        "type": "string"
+                    },
+                    {
+                        "name": "stay_type",
+                        "in": "formData",
+                        "description": "1=Hotel,2=Home",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "star_rate",
+                        "in": "formData",
+                        "description": "Star Rating",
+                        "type": "string"
+                    },
+                    {
+                        "name": "is_planner",
+                        "in": "formData",
+                        "description": "1 for yes",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/interest": {
+            "get": {
+                "tags": [
+                    "Interest list"
+                ],
+                "summary": "Get interest's list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "interest_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Add Interest"
+                ],
+                "summary": "Add user's interest",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "user_interest",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "interest",
+                        "in": "formData",
+                        "description": "Json data(sub_category,child_category)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/get_ipl_team": {
+            "get": {
+                "tags": [
+                    "fetch IP team"
+                ],
+                "summary": "return the ipl team, sorted by points",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "ipl_team",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/jokes": {
+            "get": {
+                "tags": [
+                    "Get Jokes list"
+                ],
+                "summary": "Get Jokes list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "jokes_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "User Login"
+                ],
+                "summary": "User login with valid credentials",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "login",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "social_type",
+                        "in": "formData",
+                        "description": "1 for budfie, 2 for facebook, 3 for google",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "formData",
+                        "description": "Country Code with +sign",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone_no",
+                        "in": "formData",
+                        "description": "Phone number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "First name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Last name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "Profile image(S3 URL)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "Valid Email",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "Date of Birth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "social_id",
+                        "in": "formData",
+                        "description": "Social id",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "Device Token",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "Device type(1 for android and 2 for IOS)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "201": {
+                        "description": "OTP not verified"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Logout API"
+                ],
+                "summary": "Logout API",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "logout",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/mood": {
+            "get": {
+                "tags": [
+                    "Get Mood Option"
+                ],
+                "summary": "Get Mood list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "mood_options",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "mood_type",
+                        "in": "query",
+                        "description": "1=Happy,2=Bored,3=Mad,4=Sad",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS(1=News,2=Clips,3=Funny Jokes,4=Happy Thoughts,5=Gifting,6=Plan Holiday,7=Calm Music,8=Game Winit,9=Game Killit)"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/movies": {
+            "get": {
+                "tags": [
+                    "Get Movies List"
+                ],
+                "summary": "Get Movies List",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_movies",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "query",
+                        "description": "Event Date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "209": {
+                        "description": "User does not have interest in this "
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/news": {
+            "get": {
+                "tags": [
+                    "Get News list"
+                ],
+                "summary": "Get News list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "top_news",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/notification": {
+            "get": {
+                "tags": [
+                    "Get Notification list"
+                ],
+                "summary": "Get Notification list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "notification_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Delete Notification"
+                ],
+                "summary": "Delete Notification",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "delete_notification",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "notification_id",
+                        "in": "formData",
+                        "description": "Notification Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/notification_count": {
+            "get": {
+                "tags": [
+                    "Get Notification Count"
+                ],
+                "summary": "Get Notification Count",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "unread_notification",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/notification_read": {
+            "get": {
+                "tags": [
+                    "Make Notification read"
+                ],
+                "summary": "Make Notification read",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "read_notification",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "notification_id",
+                        "in": "query",
+                        "description": "Notification Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/notification_status": {
+            "post": {
+                "tags": [
+                    "On-Off Notification"
+                ],
+                "summary": "On-Off Notification",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "on_off_notification",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "description": "Type (1=All,2=Sports,3=Concerts,4=Movies,5=Birthday,6=Fortune Cookie,7=Invitation)",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "formData",
+                        "description": "Action (1 for on and 2 for off)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/other_user": {
+            "get": {
+                "tags": [
+                    "User profile"
+                ],
+                "summary": "Get other user's details",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "user_profile",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "user_ids",
+                        "in": "query",
+                        "description": "Json data(id)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Get Friends Profile"
+                ],
+                "summary": "Get Friends Profile",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "friend_profile",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friend_id",
+                        "in": "formData",
+                        "description": "Friend id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/otp": {
+            "get": {
+                "tags": [
+                    "Verify OTP"
+                ],
+                "summary": "Check whether the entered OTP is correct or not",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "verify_otp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "Country Code with +sign",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone_no",
+                        "in": "query",
+                        "description": "Phone number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "otp",
+                        "in": "query",
+                        "description": "OTP",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Number not Found"
+                    },
+                    "201": {
+                        "description": "Incorrect OTP"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Resend OTP"
+                ],
+                "summary": "Resend OTP to valid user",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "resend_otp",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "country_code",
+                        "in": "formData",
+                        "description": "Country Code with +sign",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "phone_no",
+                        "in": "formData",
+                        "description": "Phone number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Number not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/pending_events": {
+            "get": {
+                "tags": [
+                    "Get Pending Events"
+                ],
+                "summary": "Get Pending Events",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "fetch_pending_events",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS(category=1 for Pending Invitation, category=2 for reminders)"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/personal_event": {
+            "get": {
+                "tags": [
+                    "Get Personal Events"
+                ],
+                "summary": "Get Personal Events",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "fetch_personal_events",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "query",
+                        "description": "Event Date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "get": {
+                "tags": [
+                    "User profile"
+                ],
+                "summary": "Get user's details",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "user_profile",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Update profile"
+                ],
+                "summary": "Update user's profile",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "update_profile",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "first_name",
+                        "in": "formData",
+                        "description": "First Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "last_name",
+                        "in": "formData",
+                        "description": "Last Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "Profile Image",
+                        "type": "string"
+                    },
+                    {
+                        "name": "dob",
+                        "in": "formData",
+                        "description": "Date of Birth(Any Date format except dd/mm/yyyy)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "gender",
+                        "in": "formData",
+                        "description": "Gender(1 for male and 2 for female)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "avtar",
+                        "in": "formData",
+                        "description": "Avtar(1 for male and 2 for female)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "interest",
+                        "in": "formData",
+                        "description": "Json data(sub_category,child_category)",
+                        "type": "string"
+                    },
+                    {
+                        "name": "location",
+                        "in": "formData",
+                        "description": "Location",
+                        "type": "string"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "formData",
+                        "description": "Longitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "formData",
+                        "description": "Latitude",
+                        "type": "string"
+                    },
+                    {
+                        "name": "image_removed",
+                        "in": "formData",
+                        "description": "1 for Image remove",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/profile_visibility": {
+            "post": {
+                "tags": [
+                    "On-Off Visibility"
+                ],
+                "summary": "On-Off Visibility",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "on_off_visibility",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "action",
+                        "in": "formData",
+                        "description": "Action (1 for on and 2 for off)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/recipient": {
+            "get": {
+                "tags": [
+                    "Get recipients"
+                ],
+                "summary": "Get recipients",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "recipient_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "search_key",
+                        "in": "query",
+                        "description": "Search keyword",
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Add Recipient"
+                ],
+                "summary": "Add Recipient",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "add_recipient",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friends",
+                        "in": "formData",
+                        "description": "Json data(friend_id)",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/refresh_token": {
+            "post": {
+                "tags": [
+                    "Refresh device token"
+                ],
+                "summary": "Refresh device token",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "refresh_device_token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "Device Type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "Device Token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/reminder_details": {
+            "get": {
+                "tags": [
+                    "Get Reminder Details"
+                ],
+                "summary": "Get Reminder Details",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "details",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "reminder_id",
+                        "in": "query",
+                        "description": "Reminder Id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/share_greeting": {
+            "post": {
+                "tags": [
+                    "Share Greeting"
+                ],
+                "summary": "Share Greeting",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "share_greeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "formData",
+                        "description": "Access Token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "greeting_id",
+                        "in": "formData",
+                        "description": "Greeting",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "friend_ids",
+                        "in": "formData",
+                        "description": "Json data(id)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/get_soccer_team": {
+            "get": {
+                "tags": [
+                    "fetch IP team"
+                ],
+                "summary": "return the soccer team, sorted by points",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_soccer_team",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "208": {
+                        "description": "Incorrect JSON"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/social_check": {
+            "post": {
+                "tags": [
+                    "Social Check"
+                ],
+                "summary": "Verify Social id",
+                "operationId": "index_post",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "formData",
+                        "description": "check_id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "social_type",
+                        "in": "formData",
+                        "description": "2 for facebook, 3 for google",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "social_id",
+                        "in": "formData",
+                        "description": "Social id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_token",
+                        "in": "formData",
+                        "description": "Device Token",
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "formData",
+                        "description": "Device type(1 for android and 2 for IOS)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "201": {
+                        "description": "OTP not verified"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/sports": {
+            "get": {
+                "tags": [
+                    "Get Sports Data"
+                ],
+                "summary": "Get Sports Data",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "get_sports_data",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "event_date",
+                        "in": "query",
+                        "description": "Event Date",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "209": {
+                        "description": "User does not have interest in this "
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/thoughts": {
+            "get": {
+                "tags": [
+                    "Get Happy Thoughts list"
+                ],
+                "summary": "Get Happy Thoughts list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "thoughts_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/timeout_movies": {
+            "get": {
+                "tags": [
+                    "Get Movie list"
+                ],
+                "summary": "Get Movie list",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "movie_list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "access_token",
+                        "in": "query",
+                        "description": "Access token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page Number",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        },
+        "/version": {
+            "get": {
+                "tags": [
+                    "Get Version Info"
+                ],
+                "summary": "Get Version Info",
+                "operationId": "index_get",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Basic Auth",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "method",
+                        "in": "query",
+                        "description": "version_details",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "version_name",
+                        "in": "query",
+                        "description": "Version Name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "device_type",
+                        "in": "query",
+                        "description": "Device Type(1= Android And 2= IOS)",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "SUCCESS"
+                    },
+                    "204": {
+                        "description": "Record not Found"
+                    },
+                    "301": {
+                        "description": "Blocked By Admin"
+                    },
+                    "302": {
+                        "description": "Deleted By Admin"
+                    },
+                    "304": {
+                        "description": "Invalid Access Token"
+                    },
+                    "100": {
+                        "description": "Parameter Missing"
+                    },
+                    "400": {
+                        "description": "Failure"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "securityDefinitions": {
+        "basicAuth": {
+            "type": "basic",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "security": [
+        {
+            "basicAuth": [
+                ""
+            ]
+        },
+        {
+            "api_key": [
+                ""
+            ]
+        }
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": ""
+        }
+    ]
+}
